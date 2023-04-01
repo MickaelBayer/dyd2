@@ -10,7 +10,7 @@ public class menu : MonoBehaviour
 
     public void startButton()
     {
-        SceneManager.LoadScene("intro_screen");
+        SceneManager.LoadScene("animationMachine");
     }
 
     public void quitButton()

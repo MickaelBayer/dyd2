@@ -34,6 +34,8 @@ public class machineAnimation : MonoBehaviour
     GameObject prefabParapluieFerme;
     [SerializeField]
     GameObject destinationSommeil;
+    [SerializeField]
+    GameObject destinationImpact;
 
     [Header("Sprite de Yur_E")]
     [SerializeField]
@@ -87,7 +89,7 @@ public class machineAnimation : MonoBehaviour
     {
         //this.sortirObjet(this.prefabParapluie);
         this.prepareToMove(GameObject.FindWithTag("incident"));
-        if (goToDestination(GameObject.FindWithTag("incident"), "fache"))
+        if (goToDestination(destinationImpact, "fache"))
         {
             GameObject parapluie = this.sortirObjet(this.prefabParapluieFerme);
             parapluie.GetComponent<outil_behaviour>().frapper();
@@ -97,7 +99,7 @@ public class machineAnimation : MonoBehaviour
     public void protectionParticule()
     {
         this.prepareToMove(GameObject.FindWithTag("incident"));
-        if(goToDestination(GameObject.FindWithTag("incident"), "inquiet"))
+        if(goToDestination(destinationImpact, "inquiet"))
         {
             GameObject parapluie = this.sortirObjet(this.prefabParapluieOuvert);
             parapluie.GetComponent<outil_behaviour>().proteger();

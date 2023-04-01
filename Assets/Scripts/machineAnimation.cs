@@ -13,7 +13,7 @@ public class machineAnimation : MonoBehaviour
     [SerializeField]
     int codeEtat;
     [SerializeField]
-    bool anim_running;
+    public bool anim_running;
 
     [Header("Variables de paramétrages d'animation")]
     [SerializeField]
@@ -49,41 +49,9 @@ public class machineAnimation : MonoBehaviour
 
     // Update is called once per frame
 
-    void FixedUpdate()
-    {
-        if (anim_running) {
-            proceedAnimation(this.Niveau, this.codeEtat);
-        }
-    }
 
-    public void proceedAnimation(int Niveau, int Etat)
-    {
-        switch (Niveau)
-        {
-            /*NIVEAU 1: PARTICULE QUI S'ECRASE*/
-            case 0:
-                switch (Etat)
-                {
-                    /*INTELLIGENT + AGGRESSIF*/
-                    case 0:
-                        frapperParticule();
-                        break;
-                    /*CALME + AGGRESSIF*/
-                    case 1:
-                        break;
-                    /*CALME + INTELLIGENT*/
-                    case 2:
-                        break;
-                    default:
-                        break;
-                }
-                break;
-            case 1:
-                break;
-            default:
-                break;
-        }
-    }
+
+
 
     public void frapperParticule()
     {
@@ -107,6 +75,7 @@ public class machineAnimation : MonoBehaviour
             this.GetComponent<SpriteRenderer>().sprite = this.spriteMoveLeft;
         }
     }
+
     public bool goToDestination(GameObject destination, string emotion)
     {
         float distance = Vector2.Distance(this.transform.position, destination.transform.position);

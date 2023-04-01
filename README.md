@@ -1,2 +1,2 @@
-# dyd2
-Scientific Game Jam 2023
+# dyd2 - Scientific Game Jam 2023
+

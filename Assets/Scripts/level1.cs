@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class level1 : MonoBehaviour
 {
-    private GameObject yurE, particle, umbrella; 
+    private GameObject yurE, particle/*, umbrella*/; 
     [SerializeField] private int scenarioChoice;
 
     // Start is called before the first frame update
@@ -12,7 +12,7 @@ public class level1 : MonoBehaviour
     {
         yurE = GameObject.Find("YurE");
         particle = GameObject.Find("Particle");
-        umbrella = GameObject.Find("Umbrella");
+        //umbrella = GameObject.Find("Umbrella");
 
         try
         {

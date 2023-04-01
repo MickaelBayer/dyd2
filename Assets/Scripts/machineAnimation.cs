@@ -29,7 +29,9 @@ public class machineAnimation : MonoBehaviour
     [SerializeField]
     GameObject objetTenuSpawner;
     [SerializeField]
-    GameObject prefabParapluie;
+    GameObject prefabParapluieOuvert;
+    [SerializeField]
+    GameObject prefabParapluieFerme;
 
     [Header("Sprite de Yur_E")]
     [SerializeField]
@@ -40,6 +42,28 @@ public class machineAnimation : MonoBehaviour
     Sprite spriteDefault;
     [SerializeField]
     Sprite spriteDefaultFache;
+    [SerializeField]
+    Sprite spriteFacheMoveLeft;
+    [SerializeField]
+    Sprite spriteFacheMoveRight;
+    [SerializeField]
+    Sprite spriteContent;
+    [SerializeField]
+    Sprite spriteContentMoveLeft;
+    [SerializeField]
+    Sprite spriteContentMoveRight;
+    [SerializeField]
+    Sprite spriteBlase;
+    [SerializeField]
+    Sprite spriteBlaseMoveLeft;
+    [SerializeField]
+    Sprite spriteBlaseMoveRight;
+    [SerializeField]
+    Sprite spriteInquiet;
+    [SerializeField]
+    Sprite spriteInquietMoveLeft;
+    [SerializeField]
+    Sprite spriteInquietMoveRight;
 
     // Start is called before the first frame update
     void Start()
@@ -59,7 +83,7 @@ public class machineAnimation : MonoBehaviour
         this.prepareToMove(GameObject.FindWithTag("incident"));
         if (goToDestination(GameObject.FindWithTag("incident"), "fache"))
         {
-            GameObject parapluie = this.sortirObjet(prefabParapluie);
+            GameObject parapluie = this.sortirObjet(this.prefabParapluieFerme);
             parapluie.GetComponent<outil_behaviour>().frapper();
         }
     }

@@ -16,5 +16,9 @@ public class GameManager : MonoBehaviour
         // check click on neurones
         // set the correct state of neurones
 
+        // check validation from player
+        // save player refs
+        // play the puzzle scene
+
     }
 }

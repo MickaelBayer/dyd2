@@ -35,6 +35,8 @@ public class machineAnimation : MonoBehaviour
 
     [Header("Sprite de Yur_E")]
     [SerializeField]
+    GameObject bodyObject;
+    [SerializeField]
     Sprite spriteMoveLeft;
     [SerializeField]
     Sprite spriteMoveRight;
@@ -92,11 +94,11 @@ public class machineAnimation : MonoBehaviour
     {
         if (target.transform.position.x > this.transform.position.x)
         {
-            this.GetComponent<SpriteRenderer>().sprite = this.spriteMoveRight;
+            bodyObject.GetComponent<SpriteRenderer>().sprite = this.spriteMoveRight;
         }
         else
         {
-            this.GetComponent<SpriteRenderer>().sprite = this.spriteMoveLeft;
+            bodyObject.GetComponent<SpriteRenderer>().sprite = this.spriteMoveLeft;
         }
     }
 
@@ -152,7 +154,7 @@ public class machineAnimation : MonoBehaviour
             default:
                 break;
         }
-        this.GetComponent<SpriteRenderer>().sprite = sprite;
+        bodyObject.GetComponent<SpriteRenderer>().sprite = sprite;
         //Balancer l'anim du Idle ici
     }
 }

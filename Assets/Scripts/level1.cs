@@ -22,24 +22,32 @@ public class level1 : MonoBehaviour
         {
             Debug.Log(e);
         }
+        if (this.scenarioChoice != 2)
+        {
+            particle.GetComponent<particuleBehaviour>().setIsFalling(true);
+        }
+    }
 
-        scenarioChoice = 0;
+    public int getScenarioChoice()
+    {
+        return this.scenarioChoice;
     }
 
     private void scenar(int choice)
     {
         switch(choice)
         {
-            /*INTELLIGENT + AGGRESSIF*/
+            /*AGGRESSIF*/
             case 0:
                 yurE.GetComponent<machineAnimation>().frapperParticule();
                 break;
-            /*CALME + AGGRESSIF*/
+            /*INTELLIGENT*/
             case 1:
                 yurE.GetComponent<machineAnimation>().protectionParticule();
                 break;
-            /*CALME + INTELLIGENT*/
+            /*CALME*/
             case 2:
+                yurE.GetComponent<machineAnimation>().sommeil();
                 break;
             default:
                 break;

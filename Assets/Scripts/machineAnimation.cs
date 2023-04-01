@@ -32,6 +32,8 @@ public class machineAnimation : MonoBehaviour
     GameObject prefabParapluieOuvert;
     [SerializeField]
     GameObject prefabParapluieFerme;
+    [SerializeField]
+    GameObject destinationSommeil;
 
     [Header("Sprite de Yur_E")]
     [SerializeField]
@@ -66,6 +68,8 @@ public class machineAnimation : MonoBehaviour
     Sprite spriteInquietMoveLeft;
     [SerializeField]
     Sprite spriteInquietMoveRight;
+    [SerializeField]
+    Sprite spriteSleep;
 
     // Start is called before the first frame update
     void Start()
@@ -100,6 +104,12 @@ public class machineAnimation : MonoBehaviour
         }
     }
 
+    public void prepareToSleep()
+    {
+        bodyObject.GetComponent<SpriteRenderer>().sprite = this.spriteSleep;
+        this.transform.Find("Head").GetComponent<head>().changeHeadState("sleepy");
+    }
+
     public void prepareToMove(GameObject target)
     {
         if (target.transform.position.x > this.transform.position.x)
@@ -125,6 +135,16 @@ public class machineAnimation : MonoBehaviour
             this.anim_running = false;
             this.idle(emotion);
             return true;
+        }
+    }
+
+    public void sommeil()
+    {
+        this.prepareToSleep();
+        float distance = Vector2.Distance(this.transform.position, destinationSommeil.transform.position);
+        if (distance > this.distanceMiniArret)
+        {
+            this.transform.position = Vector2.Lerp(this.transform.position, destinationSommeil.transform.position, Time.deltaTime * this.speedYurE /3);
         }
     }
 

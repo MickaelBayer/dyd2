@@ -22,7 +22,7 @@ public class particuleBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        isFalling = true;
+        
     }
 
     // Update is called once per frame
@@ -44,6 +44,7 @@ public class particuleBehaviour : MonoBehaviour
         }
         if (isFalling)
         {
+            this.transform.position = Vector2.Lerp(this.transform.position, destinationImpact.transform.position, Time.deltaTime * this.speedChuteParticle);
 
         }
     }
@@ -51,5 +52,10 @@ public class particuleBehaviour : MonoBehaviour
     public void particuleFrappee()
     {
         isFrapped = true;
+    }
+
+    public void setIsFalling(bool fall)
+    {
+        this.isFalling = fall; 
     }
 }

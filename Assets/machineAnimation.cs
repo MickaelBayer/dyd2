@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEditor;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class machineAnimation : MonoBehaviour
 {
@@ -17,7 +19,27 @@ public class machineAnimation : MonoBehaviour
     [SerializeField]
     float distanceMiniArret;
     [SerializeField]
+    float rotationToMove;
+    [SerializeField]
     float speedYurE;
+    [SerializeField]
+    Vector3 targetScaleObjet;
+
+    [Header("Prefab des objets de Yur-E")]
+    [SerializeField]
+    GameObject objetTenuSpawner;
+    [SerializeField]
+    GameObject prefabParapluie;
+
+    [Header("Sprite de Yur_E")]
+    [SerializeField]
+    Sprite spriteMoveLeft;
+    [SerializeField]
+    Sprite spriteMoveRight;
+    [SerializeField]
+    Sprite spriteDefault;
+    [SerializeField]
+    Sprite spriteDefaultFache;
 
     // Start is called before the first frame update
     void Start()
@@ -42,11 +64,11 @@ public class machineAnimation : MonoBehaviour
             case 0:
                 switch (Etat)
                 {
-                    /*CALME + AGGRESSIF*/
-                    case 0:
-                        goToDestination(GameObject.FindWithTag("incident"));
-                        break;
                     /*INTELLIGENT + AGGRESSIF*/
+                    case 0:
+                        frapperParticule();
+                        break;
+                    /*CALME + AGGRESSIF*/
                     case 1:
                         break;
                     /*CALME + INTELLIGENT*/
@@ -63,17 +85,81 @@ public class machineAnimation : MonoBehaviour
         }
     }
 
-
-    public void goToDestination(GameObject destination)
+    public void frapperParticule()
     {
-        float distance = Vector3.Distance(this.transform.position, destination.transform.position);
+        //this.sortirObjet(this.prefabParapluie);
+        this.prepareToMove(GameObject.FindWithTag("incident"));
+        if (goToDestination(GameObject.FindWithTag("incident"), "fache"))
+        {
+            GameObject parapluie = this.sortirObjet(prefabParapluie);
+            parapluie.GetComponent<outil_behaviour>().frapper();
+        }
+    }
+
+    public void prepareToMove(GameObject target)
+    {
+        if (target.transform.position.x > this.transform.position.x)
+        {
+            this.GetComponent<SpriteRenderer>().sprite = this.spriteMoveRight;
+        }
+        else
+        {
+            this.GetComponent<SpriteRenderer>().sprite = this.spriteMoveLeft;
+        }
+    }
+    public bool goToDestination(GameObject destination, string emotion)
+    {
+        float distance = Vector2.Distance(this.transform.position, destination.transform.position);
         if(distance > this.distanceMiniArret)
         {
-            this.transform.position = Vector3.MoveTowards(this.transform.position, destination.transform.position, Time.deltaTime * this.speedYurE);
+            this.transform.position = Vector2.Lerp(this.transform.position, destination.transform.position, Time.deltaTime * this.speedYurE);
+            return false;
         }
         else
         {
             this.anim_running = false;
+            this.idle(emotion);
+            return true;
         }
+    }
+
+    public GameObject sortirObjet(GameObject prefabObjet)
+    {
+        GameObject objetTenu = null;
+        if (this.objetTenuSpawner.GetComponentsInChildren<Transform>().Length <= 1)
+        {
+           objetTenu = Instantiate(prefabObjet, this.objetTenuSpawner.transform);
+           objetTenu.tag = "objetTenu";
+        }
+        return objetTenu;
+    }
+
+    public void utilisationObjet(GameObject prefabObjet, GameObject target, string action)
+    {
+        switch (action)
+        {
+            case "frapper":
+                prefabObjet.transform.position = Vector2.Lerp(prefabObjet.transform.position, target.transform.position, Time.deltaTime * this.speedYurE);
+                return;
+            case "protection":
+                return;
+            default:
+                break;
+        }
+    }
+
+    public void idle(string emotion)
+    {
+        Sprite sprite = null;
+        switch (emotion)
+        {
+            case "fache":
+                sprite = this.spriteDefaultFache;
+                break;
+            default:
+                break;
+        }
+        this.GetComponent<SpriteRenderer>().sprite = sprite;
+        //Balancer l'anim du Idle ici
     }
 }

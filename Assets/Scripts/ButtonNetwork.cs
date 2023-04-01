@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class ButtonNetwork : MonoBehaviour
 {
+    Network networkScript;
     // Start is called before the first frame update
     void Start()
     {
+        networkScript = GameObject.Find("Network").GetComponent<Network>();
 
     }
 
@@ -21,6 +23,6 @@ public class ButtonNetwork : MonoBehaviour
         // validate the current neurone selection.
         // play the scene
         Debug.Log("Click Validate");
-        GetComponentInParent<Network>().OnChildClick();
+        networkScript.OnChildClick();
     }
 }

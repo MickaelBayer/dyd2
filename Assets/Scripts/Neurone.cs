@@ -18,12 +18,15 @@ public class Neurone : MonoBehaviour
 
     public Network parent;
 
+    private Color neutral = new Color(1f, 1f, 1f, .5f);
+    private Color selected = new Color(0f, 1f, 1f, .5f);
+
     void Start()
     {
         // setup background image
         this.m_SpriteRenderer = this.GetComponent<SpriteRenderer>();
         //Set the GameObject's Color quickly to a set Color (blue)
-        this.m_SpriteRenderer.color = Color.blue;
+        this.m_SpriteRenderer.color = neutral;
         // setup states through player pref
         this.isKnown = PlayerPrefs.GetInt(this.name + "_isKnown") != 0;
         // allow coroutine
@@ -40,7 +43,7 @@ public class Neurone : MonoBehaviour
     {
         // change the level state
         this.levelValue = !levelValue;
-        this.m_SpriteRenderer.color = this.levelValue ? Color.red : Color.blue;
+        this.m_SpriteRenderer.color = this.levelValue ? selected : neutral;
         Debug.Log("click " + this.name);
     }
 

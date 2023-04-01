@@ -29,9 +29,17 @@ public class machineAnimation : MonoBehaviour
     [SerializeField]
     GameObject objetTenuSpawner;
     [SerializeField]
-    GameObject prefabParapluie;
+    GameObject prefabParapluieOuvert;
+    [SerializeField]
+    GameObject prefabParapluieFerme;
+    [SerializeField]
+    GameObject destinationSommeil;
+    [SerializeField]
+    GameObject destinationImpact;
 
     [Header("Sprite de Yur_E")]
+    [SerializeField]
+    GameObject bodyObject;
     [SerializeField]
     Sprite spriteMoveLeft;
     [SerializeField]
@@ -40,6 +48,30 @@ public class machineAnimation : MonoBehaviour
     Sprite spriteDefault;
     [SerializeField]
     Sprite spriteDefaultFache;
+    [SerializeField]
+    Sprite spriteFacheMoveLeft;
+    [SerializeField]
+    Sprite spriteFacheMoveRight;
+    [SerializeField]
+    Sprite spriteContent;
+    [SerializeField]
+    Sprite spriteContentMoveLeft;
+    [SerializeField]
+    Sprite spriteContentMoveRight;
+    [SerializeField]
+    Sprite spriteBlase;
+    [SerializeField]
+    Sprite spriteBlaseMoveLeft;
+    [SerializeField]
+    Sprite spriteBlaseMoveRight;
+    [SerializeField]
+    Sprite spriteInquiet;
+    [SerializeField]
+    Sprite spriteInquietMoveLeft;
+    [SerializeField]
+    Sprite spriteInquietMoveRight;
+    [SerializeField]
+    Sprite spriteSleep;
 
     // Start is called before the first frame update
     void Start()
@@ -57,22 +89,38 @@ public class machineAnimation : MonoBehaviour
     {
         //this.sortirObjet(this.prefabParapluie);
         this.prepareToMove(GameObject.FindWithTag("incident"));
-        if (goToDestination(GameObject.FindWithTag("incident"), "fache"))
+        if (goToDestination(destinationImpact, "fache"))
         {
-            GameObject parapluie = this.sortirObjet(prefabParapluie);
+            GameObject parapluie = this.sortirObjet(this.prefabParapluieFerme);
             parapluie.GetComponent<outil_behaviour>().frapper();
         }
+    }
+
+    public void protectionParticule()
+    {
+        this.prepareToMove(GameObject.FindWithTag("incident"));
+        if(goToDestination(destinationImpact, "inquiet"))
+        {
+            GameObject parapluie = this.sortirObjet(this.prefabParapluieOuvert);
+            parapluie.GetComponent<outil_behaviour>().proteger();
+        }
+    }
+
+    public void prepareToSleep()
+    {
+        bodyObject.GetComponent<SpriteRenderer>().sprite = this.spriteSleep;
+        this.transform.Find("Head").GetComponent<head>().changeHeadState("sleepy");
     }
 
     public void prepareToMove(GameObject target)
     {
         if (target.transform.position.x > this.transform.position.x)
         {
-            this.GetComponent<SpriteRenderer>().sprite = this.spriteMoveRight;
+            bodyObject.GetComponent<SpriteRenderer>().sprite = this.spriteMoveRight;
         }
         else
         {
-            this.GetComponent<SpriteRenderer>().sprite = this.spriteMoveLeft;
+            bodyObject.GetComponent<SpriteRenderer>().sprite = this.spriteMoveLeft;
         }
     }
 
@@ -89,6 +137,16 @@ public class machineAnimation : MonoBehaviour
             this.anim_running = false;
             this.idle(emotion);
             return true;
+        }
+    }
+
+    public void sommeil()
+    {
+        this.prepareToSleep();
+        float distance = Vector2.Distance(this.transform.position, destinationSommeil.transform.position);
+        if (distance > this.distanceMiniArret)
+        {
+            this.transform.position = Vector2.Lerp(this.transform.position, destinationSommeil.transform.position, Time.deltaTime * this.speedYurE /3);
         }
     }
 
@@ -128,7 +186,7 @@ public class machineAnimation : MonoBehaviour
             default:
                 break;
         }
-        this.GetComponent<SpriteRenderer>().sprite = sprite;
+        bodyObject.GetComponent<SpriteRenderer>().sprite = sprite;
         //Balancer l'anim du Idle ici
     }
 }

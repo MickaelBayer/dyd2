@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class level1 : MonoBehaviour
 {
-    private GameObject yurE, particle, umbrella; 
+    private GameObject yurE, particle/*, umbrella*/; 
     [SerializeField] private int scenarioChoice;
 
     // Start is called before the first frame update
@@ -12,7 +12,7 @@ public class level1 : MonoBehaviour
     {
         yurE = GameObject.Find("YurE");
         particle = GameObject.Find("Particle");
-        umbrella = GameObject.Find("Umbrella");
+        //umbrella = GameObject.Find("Umbrella");
 
         try
         {
@@ -22,23 +22,32 @@ public class level1 : MonoBehaviour
         {
             Debug.Log(e);
         }
+        if (this.scenarioChoice != 2)
+        {
+            particle.GetComponent<particuleBehaviour>().setIsFalling(true);
+        }
+    }
 
-        scenarioChoice = 0;
+    public int getScenarioChoice()
+    {
+        return this.scenarioChoice;
     }
 
     private void scenar(int choice)
     {
         switch(choice)
         {
-            /*INTELLIGENT + AGGRESSIF*/
+            /*AGGRESSIF*/
             case 0:
                 yurE.GetComponent<machineAnimation>().frapperParticule();
                 break;
-            /*CALME + AGGRESSIF*/
+            /*INTELLIGENT*/
             case 1:
+                yurE.GetComponent<machineAnimation>().protectionParticule();
                 break;
-            /*CALME + INTELLIGENT*/
+            /*CALME*/
             case 2:
+                yurE.GetComponent<machineAnimation>().sommeil();
                 break;
             default:
                 break;

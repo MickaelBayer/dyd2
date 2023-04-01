@@ -16,6 +16,7 @@ public class Neurone : MonoBehaviour
     // coroutine availability
     private bool coroutineAllowed = false;
 
+    public Network parent;
 
     void Start()
     {
@@ -24,7 +25,7 @@ public class Neurone : MonoBehaviour
         //Set the GameObject's Color quickly to a set Color (blue)
         this.m_SpriteRenderer.color = Color.blue;
         // setup states through player pref
-        this.isKnown = PlayerPrefs.GetInt(this.name) != 0;
+        this.isKnown = PlayerPrefs.GetInt(this.name + "_isKnown") != 0;
         // allow coroutine
         this.coroutineAllowed = true;
     }
@@ -52,7 +53,7 @@ public class Neurone : MonoBehaviour
     }
 
     /**
-    * Pulsing routing
+    * Pulsing routine
     */
     private IEnumerator StartPulsing()
     {

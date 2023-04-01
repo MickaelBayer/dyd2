@@ -231,7 +231,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330049777}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.09, y: -4.01, z: 0.5414101}
+  m_LocalPosition: {x: 3.09, y: -2.69, z: 0.5414101}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -557,6 +557,7 @@ MonoBehaviour:
   prefabParapluieOuvert: {fileID: 8013154133146063192, guid: 844a9d40eac809342b9ded4737eb0f5b, type: 3}
   prefabParapluieFerme: {fileID: 686602533437573273, guid: 471d7502b429f244da019a88d6927f54, type: 3}
   destinationSommeil: {fileID: 813047042}
+  destinationImpact: {fileID: 330049777}
   bodyObject: {fileID: 2085142093}
   spriteMoveLeft: {fileID: 21300000, guid: 3fff1994c3cdb0841a6f475682eb63a1, type: 3}
   spriteMoveRight: {fileID: 21300000, guid: 69040dc9235677c42ba089a4613597a7, type: 3}
@@ -647,7 +648,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 215d5098a447e394ea9feb0e1dc8ca8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scenarioChoice: 2
+  scenarioChoice: 0
 --- !u!4 &1209229152
 Transform:
   m_ObjectHideFlags: 0

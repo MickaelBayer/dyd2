@@ -6,6 +6,7 @@ public class outil_behaviour : MonoBehaviour
 {
     private bool frapping;
     private bool elanting;
+    private bool protection;
     [SerializeField]
     float distanceMiniElan;
     [SerializeField]
@@ -21,6 +22,10 @@ public class outil_behaviour : MonoBehaviour
     public void frapper()
     {
         this.elanting = true;
+    }
+    public void proteger()
+    {
+        this.frapping = true;
     }
     void Start()
     {

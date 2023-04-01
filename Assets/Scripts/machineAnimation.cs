@@ -88,6 +88,16 @@ public class machineAnimation : MonoBehaviour
         }
     }
 
+    public void protectionParticule()
+    {
+        this.prepareToMove(GameObject.FindWithTag("incident"));
+        if(goToDestination(GameObject.FindWithTag("incident"), "inquiet"))
+        {
+            GameObject parapluie = this.sortirObjet(this.prefabParapluieOuvert);
+            parapluie.GetComponent<outil_behaviour>().proteger();
+        }
+    }
+
     public void prepareToMove(GameObject target)
     {
         if (target.transform.position.x > this.transform.position.x)

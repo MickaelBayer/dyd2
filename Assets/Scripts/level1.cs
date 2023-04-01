@@ -36,6 +36,7 @@ public class level1 : MonoBehaviour
                 break;
             /*CALME + AGGRESSIF*/
             case 1:
+                yurE.GetComponent<machineAnimation>().protectionParticule();
                 break;
             /*CALME + INTELLIGENT*/
             case 2:

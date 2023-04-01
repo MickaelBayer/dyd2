@@ -8,7 +8,8 @@ public class Neurone : MonoBehaviour
     public bool isKnown = false;
     // neurone state for the level
     public bool levelValue = false;
-    // Start is called before the first frame update
+    // is the neurone active for a level
+    public bool isActive = false;
 
     // sprite renderer attached
     private SpriteRenderer m_SpriteRenderer;
@@ -23,14 +24,24 @@ public class Neurone : MonoBehaviour
 
     void Start()
     {
+        this.parent = this.GetComponentInParent<Network>();
         // setup background image
         this.m_SpriteRenderer = this.GetComponent<SpriteRenderer>();
-        //Set the GameObject's Color quickly to a set Color (blue)
-        this.m_SpriteRenderer.color = neutral;
+        //Set the GameObject's Color quickly to a set Color
+        if (this.isActive)
+        {
+            Debug.Log("In neurone : " + this.name);
+            this.m_SpriteRenderer.color = neutral;
+            // allow coroutine
+            this.coroutineAllowed = true;
+        }
+        else
+        {
+            this.m_SpriteRenderer.color = Color.gray;
+        }
         // setup states through player pref
         this.isKnown = PlayerPrefs.GetInt(this.name + "_isKnown") != 0;
-        // allow coroutine
-        this.coroutineAllowed = true;
+
     }
 
     // Update is called once per frame
@@ -41,10 +52,13 @@ public class Neurone : MonoBehaviour
 
     void OnMouseDown()
     {
-        // change the level state
-        this.levelValue = !levelValue;
-        this.m_SpriteRenderer.color = this.levelValue ? selected : neutral;
-        Debug.Log("click " + this.name);
+        if (this.isActive)
+        {
+            // change the level state
+            this.levelValue = !levelValue;
+            this.m_SpriteRenderer.color = this.levelValue ? selected : neutral;
+            Debug.Log("click " + this.name);
+        }
     }
 
     void OnMouseOver()

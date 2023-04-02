@@ -28,7 +28,11 @@ public class level2 : MonoBehaviour
             Debug.Log(e);
         }
         
-        if(neuron1 == 0 && neuron2 == 0 && neuron3 == 0 && neuron4 == 1)
+        if(neuron1 == 0 && neuron2==0 && neuron3 == 0 && neuron4 == 0)
+        {
+            scenarioChoice = 5;
+        }
+        else if(neuron1 == 0 && neuron2 == 0 && neuron3 == 0 && neuron4 == 1)
         {   //colere
             //pas assez fort
             scenarioChoice = 4;
@@ -114,6 +118,9 @@ public class level2 : MonoBehaviour
             case 4:
                 yurE.GetComponent<yurE_level2>().frapperParticule();
                 StartCoroutine(waitToGameOver());
+                break;
+            case 5:
+                StartCoroutine(waitToLoadVictory());
                 break;
             default:
                 break;

@@ -12,35 +12,34 @@ public class Neurone : MonoBehaviour
     public bool isActive = false;
 
     // sprite renderer attached
-    private SpriteRenderer m_SpriteRenderer;
+    public SpriteRenderer m_SpriteRenderer;
 
     // coroutine availability
     private bool coroutineAllowed = false;
 
     public Network parent;
 
-    private Color neutral = new Color(1f, 1f, 1f, .5f);
-    private Color selected = new Color(0f, 1f, 1f, .5f);
+    public Color initColor;
+
+    public Color neutral = new Color(1f, 1f, 1f, .5f);
+    public Color selected = new Color(0f, 1f, 1f, .5f);
 
     void Start()
     {
+        // setup states through player pref
+        this.isKnown = PlayerPrefs.GetInt(this.name + "_isKnown") != 0;
+        // setup parent
         this.parent = this.GetComponentInParent<Network>();
         // setup background image
         this.m_SpriteRenderer = this.GetComponent<SpriteRenderer>();
         //Set the GameObject's Color quickly to a set Color
         if (this.isActive)
         {
-            Debug.Log("In neurone : " + this.name);
-            this.m_SpriteRenderer.color = neutral;
             // allow coroutine
             this.coroutineAllowed = true;
         }
-        else
-        {
-            this.m_SpriteRenderer.color = Color.gray;
-        }
-        // setup states through player pref
-        this.isKnown = PlayerPrefs.GetInt(this.name + "_isKnown") != 0;
+        this.m_SpriteRenderer.color = this.initColor;
+
 
     }
 
@@ -56,7 +55,7 @@ public class Neurone : MonoBehaviour
         {
             // change the level state
             this.levelValue = !levelValue;
-            this.m_SpriteRenderer.color = this.levelValue ? selected : neutral;
+            this.m_SpriteRenderer.color = this.levelValue ? selected : initColor;
             Debug.Log("click " + this.name);
         }
     }

@@ -62,6 +62,10 @@ public class level2 : MonoBehaviour
             //pas assez fort
             scenarioChoice = 4;
         }
+        else if(neuron1 == 1 && neuron2 == 0 && neuron3 ==1 && neuron4 == 0)
+        {
+            scenarioChoice = 2;
+        }
         else if (neuron1 == 0 && neuron2 == 1 && neuron3 == 1 && neuron4 == 0)
         {   //tabasse
             scenarioChoice = 4;
@@ -104,12 +108,12 @@ public class level2 : MonoBehaviour
                 StartCoroutine(waitToLoadVictory());
                 break;
             case 3:
-                yurE.GetComponent<machineAnimation>().sommeil();
-                StartCoroutine(waitToGameOver());
+                yurE.GetComponent<yurE_level2>().sommeil();
+                StartCoroutine(waitToLoadVictory());
                 break;
             case 4:
-                yurE.GetComponent<machineAnimation>().frapperParticule();
-                StartCoroutine(waitToLoadVictory());
+                yurE.GetComponent<yurE_level2>().frapperParticule();
+                StartCoroutine(waitToGameOver());
                 break;
             default:
                 break;

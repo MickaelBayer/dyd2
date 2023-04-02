@@ -28,7 +28,21 @@ public class level1 : MonoBehaviour
         }
         particle.GetComponent<particuleBehaviour>().setIsFalling(true);
 
-        if ((neuron1 == 1 && neuron2 == 0 && neuron3 == 1) || (neuron1 == 1 && neuron2 == 0 && neuron3 == 0) || (neuron1 == 0 && neuron2 == 0 && neuron3 == 1))
+        if(neuron1 == 1 && neuron2 == 0 && neuron3 == 0)
+        {
+            scenarioChoice = 2;
+        }
+        else if(neuron1 == 0 && neuron2 == 1 && neuron3 == 0)
+        {
+            scenarioChoice = 0;
+        }
+        else if(neuron1 == 0 && neuron2 == 0 && neuron3 == 1)
+        {
+            scenarioChoice = 1;
+        }
+        else if ((neuron1 == 1 && neuron2 == 0 && neuron3 == 1) 
+            || (neuron1 == 1 && neuron2 == 0 && neuron3 == 0) 
+            || (neuron1 == 0 && neuron2 == 0 && neuron3 == 1))
         {
             scenarioChoice = 1;
         }

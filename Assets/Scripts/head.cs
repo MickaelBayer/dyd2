@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class head : MonoBehaviour
 {
-    [SerializeField] private Sprite idleHead, happyHead, angryHead, sleepyHead, worryHead;
-    private enum possibleState { idle, happy, sleepy, angry, worry };
+    [SerializeField] private Sprite idleHead, happyHead, angryHead, sleepyHead, worryHead, boredHead;
+    private enum possibleState { idle, happy, sleepy, angry, worry, bored };
     private possibleState headState;
 
     // Start is called before the first frame update
@@ -34,6 +34,9 @@ public class head : MonoBehaviour
             case possibleState.worry:
                 this.GetComponent<SpriteRenderer>().sprite = worryHead;
                 break;
+            case possibleState.bored:
+                this.GetComponent<SpriteRenderer>().sprite = boredHead;
+                break;
         }
     }
 
@@ -55,6 +58,9 @@ public class head : MonoBehaviour
                 break;
             case "worry":
                 this.headState = possibleState.worry;
+                break;
+            case "bored":
+                this.headState = possibleState.bored;
                 break;
         }
     }

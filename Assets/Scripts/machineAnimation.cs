@@ -76,6 +76,8 @@ public class machineAnimation : MonoBehaviour
     Sprite spriteInquietMoveRight;
     [SerializeField]
     Sprite spriteSleep;
+    [SerializeField]
+    Sprite lesBrasEnLair;
 
     // Start is called before the first frame update
     void Start()
@@ -92,7 +94,7 @@ public class machineAnimation : MonoBehaviour
     public void frapperParticule()
     {
         //this.sortirObjet(this.prefabParapluie);
-        this.prepareToMove(GameObject.FindWithTag("incident"), "angry");
+        this.prepareToMoveFrapper(GameObject.FindWithTag("incident"), "angry");
         if (goToDestination(destinationImpact, "fache"))
         {
             GameObject parapluie = this.sortirObjet(this.prefabParapluieFerme, false);
@@ -102,7 +104,7 @@ public class machineAnimation : MonoBehaviour
 
     public void protectionParticule()
     {
-        this.prepareToMove(GameObject.FindWithTag("incident"), "worry");
+        this.prepareToMoveProteger(GameObject.FindWithTag("incident"), "worry");
         /*if(goToDestination(destinationImpact, "inquiet"))
         {*/
         GameObject parapluie = this.sortirObjet(this.prefabParapluieOuvert, true);
@@ -116,7 +118,7 @@ public class machineAnimation : MonoBehaviour
         this.transform.Find("Head").GetComponent<head>().changeHeadState("sleepy");
     }
 
-    public void prepareToMove(GameObject target, string emotion)
+    public void prepareToMoveFrapper(GameObject target, string emotion)
     {
         this.transform.Find("Head").GetComponent<head>().changeHeadState(emotion);
         if (target.transform.position.x > this.transform.position.x)
@@ -126,6 +128,19 @@ public class machineAnimation : MonoBehaviour
         else
         {
             bodyObject.GetComponent<SpriteRenderer>().sprite = this.spriteMoveLeft;
+        }
+    }
+
+    public void prepareToMoveProteger(GameObject target, string emotion)
+    {
+        this.transform.Find("Head").GetComponent<head>().changeHeadState(emotion);
+        if (target.transform.position.x > this.transform.position.x)
+        {
+            bodyObject.GetComponent<SpriteRenderer>().sprite = this.lesBrasEnLair;
+        }
+        else
+        {
+            bodyObject.GetComponent<SpriteRenderer>().sprite = this.lesBrasEnLair;
         }
     }
 

@@ -55,5 +55,10 @@ public class menu : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
+    public void loadStart()
+    {
+        SceneManager.LoadScene("start_screen");
+    }
+
 }
 

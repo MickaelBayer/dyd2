@@ -1110,7 +1110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2845935101869660cb4b9f405ea763eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 1
+  activatedNeurons: 4
   neurones: []
 --- !u!4 &783505806
 Transform:

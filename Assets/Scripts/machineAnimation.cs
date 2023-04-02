@@ -181,7 +181,10 @@ public class machineAnimation : MonoBehaviour
         switch (emotion)
         {
             case "fache":
-                sprite = this.spriteDefaultFache;
+                sprite = this.spriteDefaultFache; //A CHANGER
+                break;
+            case "inquiet":
+                sprite = this.spriteDefaultFache; //A CHANGER
                 break;
             default:
                 break;

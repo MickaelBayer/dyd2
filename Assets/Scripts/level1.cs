@@ -6,7 +6,10 @@ using UnityEngine.SceneManagement;
 public class level1 : MonoBehaviour
 {
     private GameObject yurE, particle/*, umbrella*/;
+
     [SerializeField] private int scenarioChoice;
+    [SerializeField] private Sprite spriteDrstroy;
+    [SerializeField] private GameObject particule;
 
     // Start is called before the first frame update
     void Start()
@@ -28,21 +31,7 @@ public class level1 : MonoBehaviour
         }
         particle.GetComponent<particuleBehaviour>().setIsFalling(true);
 
-        if(neuron1 == 1 && neuron2 == 0 && neuron3 == 0)
-        {
-            scenarioChoice = 2;
-        }
-        else if(neuron1 == 0 && neuron2 == 1 && neuron3 == 0)
-        {
-            scenarioChoice = 0;
-        }
-        else if(neuron1 == 0 && neuron2 == 0 && neuron3 == 1)
-        {
-            scenarioChoice = 1;
-        }
-        else if ((neuron1 == 1 && neuron2 == 0 && neuron3 == 1) 
-            || (neuron1 == 1 && neuron2 == 0 && neuron3 == 0) 
-            || (neuron1 == 0 && neuron2 == 0 && neuron3 == 1))
+        if ((neuron1 == 1 && neuron2 == 0 && neuron3 == 1) || (neuron1 == 1 && neuron2 == 0 && neuron3 == 0))
         {
             scenarioChoice = 1;
         }
@@ -95,7 +84,7 @@ public class level1 : MonoBehaviour
 
     private IEnumerator waitToGameOver()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1.5f);
         try
         {
             PlayerPrefs.SetInt("ingameMusic", GameObject.Find("Music Manager").GetComponent<AudioSource>().timeSamples);
@@ -104,6 +93,9 @@ public class level1 : MonoBehaviour
         {
             Debug.Log(e);
         }
+        GameObject.Find("levelBackground").GetComponent<SpriteRenderer>().sprite = spriteDrstroy;
+        particule.GetComponent<SpriteRenderer>().enabled = false;
+        yield return new WaitForSeconds(1.5f);
         SceneManager.LoadScene("game_over");
     }
 

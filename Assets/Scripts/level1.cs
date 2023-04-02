@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class level1 : MonoBehaviour
 {
-    private GameObject yurE, particle/*, umbrella*/; 
+    private GameObject yurE, particle/*, umbrella*/;
     [SerializeField] private int scenarioChoice;
 
     // Start is called before the first frame update
@@ -22,7 +22,7 @@ public class level1 : MonoBehaviour
             neuron2 = PlayerPrefs.GetInt("Neurone (2)_levelValue");
             neuron3 = PlayerPrefs.GetInt("Neurone (3)_levelValue");
         }
-        catch(System.Exception e)
+        catch (System.Exception e)
         {
             Debug.Log(e);
         }
@@ -32,7 +32,7 @@ public class level1 : MonoBehaviour
         {
             scenarioChoice = 1;
         }
-        else if (neuron1 == 0 && neuron2 == 1 && neuron3 == 1 )
+        else if (neuron1 == 0 && neuron2 == 1 && neuron3 == 1)
         {
             scenarioChoice = 0;
         }
@@ -50,7 +50,7 @@ public class level1 : MonoBehaviour
 
     private void scenar(int choice)
     {
-        switch(choice)
+        switch (choice)
         {
             /*AGGRESSIF*/
             case 0:
@@ -60,11 +60,8 @@ public class level1 : MonoBehaviour
             /*INTELLIGENT*/
             case 1:
                 yurE.GetComponent<machineAnimation>().protectionParticule();
-<<<<<<< HEAD
                 StartCoroutine(waitToLoadVictory());
-=======
                 yurE.GetComponent<machineAnimation>().anim_running = false;
->>>>>>> animation_yure
                 break;
             /*CALME*/
             case 2:
@@ -95,9 +92,9 @@ public class level1 : MonoBehaviour
         }
         SceneManager.LoadScene("game_over");
     }
-    
 
-void FixedUpdate()
+
+    void FixedUpdate()
     {
         if (yurE.GetComponent<machineAnimation>().anim_running)
         {

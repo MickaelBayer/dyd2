@@ -4,6 +4,7 @@ using System.Threading;
 using UnityEditor;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
+using UnityEngine.SceneManagement;
 
 public class machineAnimation : MonoBehaviour
 {
@@ -147,6 +148,18 @@ public class machineAnimation : MonoBehaviour
         if (distance > this.distanceMiniArret)
         {
             this.transform.position = Vector2.Lerp(this.transform.position, destinationSommeil.transform.position, Time.deltaTime * this.speedYurE /3);
+        }
+        else
+        {
+            try
+            {
+                PlayerPrefs.SetInt("ingameMusic", GameObject.Find("Music Manager").GetComponent<AudioSource>().timeSamples);
+            }
+            catch(System.Exception e)
+            {
+                Debug.Log(e);
+            }
+            SceneManager.LoadScene("game_over");
         }
     }
 

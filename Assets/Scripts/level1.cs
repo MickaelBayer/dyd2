@@ -87,11 +87,22 @@ public class level1 : MonoBehaviour
     private IEnumerator waitToLoadVictory()
     {
         yield return new WaitForSeconds(3f);
+        try
+        {
+            PlayerPrefs.SetInt("ingameMusic", GameObject.Find("Music Manager").GetComponent<AudioSource>().timeSamples);
+        }
+        catch (System.Exception e)
+        {
+            Debug.Log(e);
+        }
         SceneManager.LoadScene("Victory");
     }
 
     private IEnumerator waitToGameOver()
     {
+        yield return new WaitForSeconds(1.5f);
+        GameObject.Find("levelBackground").GetComponent<SpriteRenderer>().sprite = spriteDrstroy;
+        particule.GetComponent<SpriteRenderer>().enabled = false;
         yield return new WaitForSeconds(1.5f);
         try
         {
@@ -101,9 +112,6 @@ public class level1 : MonoBehaviour
         {
             Debug.Log(e);
         }
-        GameObject.Find("levelBackground").GetComponent<SpriteRenderer>().sprite = spriteDrstroy;
-        particule.GetComponent<SpriteRenderer>().enabled = false;
-        yield return new WaitForSeconds(1.5f);
         SceneManager.LoadScene("game_over");
     }
 

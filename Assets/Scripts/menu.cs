@@ -12,7 +12,14 @@ public class menu : MonoBehaviour
 
     void Start()
     {
-        bulle.SetActive(false);
+        try
+        {
+            bulle.SetActive(false);
+        }
+        catch(System.Exception e)
+        {
+            Debug.Log(e);
+        }
     }
     public void startButton()
     {

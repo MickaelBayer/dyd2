@@ -130,6 +130,14 @@ public class level2 : MonoBehaviour
     private IEnumerator waitToLoadVictory()
     {
         yield return new WaitForSeconds(3f);
+        try
+        {
+            PlayerPrefs.SetInt("ingameMusic", GameObject.Find("Music Manager").GetComponent<AudioSource>().timeSamples);
+        }
+        catch (System.Exception e)
+        {
+            Debug.Log(e);
+        }
         SceneManager.LoadScene("Victory");
     }
 

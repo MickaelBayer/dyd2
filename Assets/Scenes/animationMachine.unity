@@ -315,10 +315,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   idleHead: {fileID: 21300000, guid: 45d53156b8ae308458eb94fccf57e713, type: 3}
-  happyHead: {fileID: 21300000, guid: dfaba5296bec1784889b3ab1f599d94d, type: 3}
-  angryHead: {fileID: 21300000, guid: dfaba5296bec1784889b3ab1f599d94d, type: 3}
+  happyHead: {fileID: 21300000, guid: 5e41ead8f09324d44ae358bfb73786ba, type: 3}
+  angryHead: {fileID: 21300000, guid: 8e8017ee5bbee6944905769a5fdc2c55, type: 3}
   sleepyHead: {fileID: 21300000, guid: 31ca389e078b2ad4286934b36557ae84, type: 3}
-  worryHead: {fileID: 0}
+  worryHead: {fileID: 21300000, guid: 69271796a8d283c45a9539a3b4e261cc, type: 3}
+  boredHead: {fileID: 21300000, guid: 6ed12fe714205d043b0f00869be625fd, type: 3}
 --- !u!212 &544726663
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -703,8 +704,8 @@ MonoBehaviour:
   destinationImpact: {fileID: 109634154}
   parapluieOuvertSpawner: {fileID: 1020198365}
   bodyObject: {fileID: 2085142093}
-  spriteMoveLeft: {fileID: 21300000, guid: 003e10ea990607e48ba3311f53718bd8, type: 3}
-  spriteMoveRight: {fileID: 21300000, guid: 003e10ea990607e48ba3311f53718bd8, type: 3}
+  spriteMoveLeft: {fileID: 21300000, guid: 0d48d0ab1fb8710429dbb9a33aea10fb, type: 3}
+  spriteMoveRight: {fileID: 21300000, guid: a5d206305d450484db49db90c662e85b, type: 3}
   spriteDefault: {fileID: 21300000, guid: 003e10ea990607e48ba3311f53718bd8, type: 3}
   spriteDefaultFache: {fileID: 21300000, guid: 003e10ea990607e48ba3311f53718bd8, type: 3}
   spriteFacheMoveLeft: {fileID: 21300000, guid: 003e10ea990607e48ba3311f53718bd8, type: 3}
@@ -719,6 +720,7 @@ MonoBehaviour:
   spriteInquietMoveLeft: {fileID: 21300000, guid: 003e10ea990607e48ba3311f53718bd8, type: 3}
   spriteInquietMoveRight: {fileID: 21300000, guid: 003e10ea990607e48ba3311f53718bd8, type: 3}
   spriteSleep: {fileID: 21300000, guid: 1ab4578ffe1ecae4e89794d0c5a3c6cf, type: 3}
+  lesBrasEnLair: {fileID: 21300000, guid: 6d017313aa885eb46a52f4e484e4b937, type: 3}
 --- !u!61 &886960944
 BoxCollider2D:
   m_ObjectHideFlags: 0

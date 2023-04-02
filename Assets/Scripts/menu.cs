@@ -10,7 +10,8 @@ public class menu : MonoBehaviour
 
     public void startButton()
     {
-        SceneManager.LoadScene("animationMachine");
+        SceneManager.LoadScene("intro_screen");
+        PlayerPrefs.SetInt("introMusic", GameObject.Find("Music Manager").GetComponent<AudioSource>().timeSamples);
     }
 
     public void quitButton()

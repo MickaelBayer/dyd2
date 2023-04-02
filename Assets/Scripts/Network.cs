@@ -64,7 +64,7 @@ public class Network : MonoBehaviour
         }
     }
 
-    public void OnChildClick()
+    public void OnChildClick(string scene)
     {
         // save the state
         // play the scene
@@ -80,6 +80,6 @@ public class Network : MonoBehaviour
             PlayerPrefs.SetInt(neurone.name + "_isKnown", neurone.isKnown ? 1 : 0);
             PlayerPrefs.SetInt(neurone.name + "_levelValue", neurone.levelValue ? 1 : 0);
         }
-        SceneManager.LoadScene("animationMachine");
+        SceneManager.LoadScene(scene);
     }
 }

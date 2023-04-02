@@ -1547,6 +1547,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2b4f7b1b44b7c9b4b64206985c1b6fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nextScene: level2_puzzle
 --- !u!212 &1160589197
 SpriteRenderer:
   m_ObjectHideFlags: 0

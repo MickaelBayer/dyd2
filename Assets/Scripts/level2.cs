@@ -39,7 +39,6 @@ public class level2 : MonoBehaviour
         {
             scenarioChoice = 2;
         }
-        scenarioChoice = 0;
 
     }
 
@@ -94,7 +93,7 @@ public class level2 : MonoBehaviour
         {
             Debug.Log(e);
         }
-        SceneManager.LoadScene("game_over");
+        SceneManager.LoadScene("game_over_level2");
     }
 
 

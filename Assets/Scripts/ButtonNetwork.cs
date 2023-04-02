@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ButtonNetwork : MonoBehaviour
 {
+    [SerializeField] private string nextScene;
     Network networkScript;
     // Start is called before the first frame update
     void Start()
@@ -23,6 +24,6 @@ public class ButtonNetwork : MonoBehaviour
         // validate the current neurone selection.
         // play the scene
         Debug.Log("Click Validate");
-        networkScript.OnChildClick();
+        networkScript.OnChildClick(nextScene);
     }
 }

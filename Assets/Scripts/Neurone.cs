@@ -56,7 +56,6 @@ public class Neurone : MonoBehaviour
             // change the level state
             this.levelValue = !levelValue;
             this.m_SpriteRenderer.color = this.levelValue ? selected : initColor;
-            Debug.Log("click " + this.name);
         }
     }
 

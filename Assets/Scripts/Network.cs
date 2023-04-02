@@ -30,12 +30,7 @@ public class Network : MonoBehaviour
             if (i < 3 * this.level)
             {
                 neurones[i].isActive = true;
-                if (i == 2)
-                {
-                    PlayerPrefs.SetInt(neurones[i].name + "_isKnown", 1);
-                }
                 neurones[i].isKnown = PlayerPrefs.GetInt(neurones[i].name + "_isKnown") != 0;
-                Debug.Log(neurones[i].name + "_isKnown = " + PlayerPrefs.GetInt(neurones[i].name + "_isKnown"));
                 if (neurones[i].isKnown)
                 {
                     switch (i)
@@ -70,14 +65,17 @@ public class Network : MonoBehaviour
     {
         // save the state
         // play the scene
-        Debug.Log("Parent on child click");
-
+        bool infoGiven = false;
         foreach (Neurone neurone in this.neurones)
         {
-            Debug.Log(neurone.name + " - " + neurone.levelValue);
             // Decide if the neurone should be known
-            PlayerPrefs.SetInt(this.name + "_isKnown", neurone.isKnown ? 1 : 0);
-            PlayerPrefs.SetInt(this.name + "_levelValue", neurone.levelValue ? 1 : 0);
+            if (!neurone.isKnown && !infoGiven && neurone.levelValue)
+            {
+                neurone.isKnown = true;
+                infoGiven = true;
+            }
+            PlayerPrefs.SetInt(neurone.name + "_isKnown", neurone.isKnown ? 1 : 0);
+            PlayerPrefs.SetInt(neurone.name + "_levelValue", neurone.levelValue ? 1 : 0);
         }
         SceneManager.LoadScene("animationMachine");
     }

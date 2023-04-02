@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 29091864}
   - component: {fileID: 29091863}
   m_Layer: 0
-  m_Name: Neurone (6)
+  m_Name: Neurone (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -150,12 +150,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 29091861}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.56, y: -0.73, z: 0}
+  m_LocalPosition: {x: -3.56, y: -0.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 783505806}
-  m_RootOrder: 5
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &29091863
 CircleCollider2D:
@@ -240,7 +240,11 @@ MonoBehaviour:
   isKnown: 0
   levelValue: 0
   isActive: 0
+  m_SpriteRenderer: {fileID: 0}
   parent: {fileID: 0}
+  initColor: {r: 0, g: 0, b: 0, a: 0}
+  neutral: {r: 1, g: 1, b: 1, a: 0.5}
+  selected: {r: 0, g: 1, b: 1, a: 0.5}
 --- !u!1 &92058901
 GameObject:
   m_ObjectHideFlags: 0
@@ -273,7 +277,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 783505806}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &92058903
 CircleCollider2D:
@@ -358,7 +362,11 @@ MonoBehaviour:
   isKnown: 0
   levelValue: 0
   isActive: 0
+  m_SpriteRenderer: {fileID: 0}
   parent: {fileID: 0}
+  initColor: {r: 0, g: 0, b: 0, a: 0}
+  neutral: {r: 1, g: 1, b: 1, a: 0.5}
+  selected: {r: 0.49803922, g: 1, b: 1, a: 1}
 --- !u!1 &332492839
 GameObject:
   m_ObjectHideFlags: 0
@@ -391,7 +399,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 783505806}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &332492841
 CircleCollider2D:
@@ -476,7 +484,11 @@ MonoBehaviour:
   isKnown: 0
   levelValue: 0
   isActive: 0
+  m_SpriteRenderer: {fileID: 0}
   parent: {fileID: 0}
+  initColor: {r: 0, g: 0, b: 0, a: 0}
+  neutral: {r: 1, g: 1, b: 1, a: 0.5}
+  selected: {r: 0, g: 1, b: 1, a: 0.5}
 --- !u!1 &478615598
 GameObject:
   m_ObjectHideFlags: 0
@@ -594,7 +606,11 @@ MonoBehaviour:
   isKnown: 0
   levelValue: 0
   isActive: 0
+  m_SpriteRenderer: {fileID: 0}
   parent: {fileID: 0}
+  initColor: {r: 0, g: 0, b: 0, a: 0}
+  neutral: {r: 1, g: 1, b: 1, a: 0.5}
+  selected: {r: 0, g: 1, b: 1, a: 0.5}
 --- !u!1 &513103195
 GameObject:
   m_ObjectHideFlags: 0
@@ -627,7 +643,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 783505806}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &513103197
 CircleCollider2D:
@@ -712,7 +728,11 @@ MonoBehaviour:
   isKnown: 0
   levelValue: 0
   isActive: 0
+  m_SpriteRenderer: {fileID: 0}
   parent: {fileID: 0}
+  initColor: {r: 0, g: 0, b: 0, a: 0}
+  neutral: {r: 1, g: 1, b: 1, a: 0.5}
+  selected: {r: 0, g: 1, b: 1, a: 0.5}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -829,7 +849,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 783505806}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &593366941
 CircleCollider2D:
@@ -914,7 +934,11 @@ MonoBehaviour:
   isKnown: 0
   levelValue: 0
   isActive: 0
+  m_SpriteRenderer: {fileID: 0}
   parent: {fileID: 0}
+  initColor: {r: 0, g: 0, b: 0, a: 0}
+  neutral: {r: 1, g: 1, b: 1, a: 0.5}
+  selected: {r: 0, g: 1, b: 1, a: 0.5}
 --- !u!1 &783505804
 GameObject:
   m_ObjectHideFlags: 0
@@ -958,19 +982,19 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1304942536}
   - {fileID: 1497803976}
   - {fileID: 844457686}
-  - {fileID: 478615599}
-  - {fileID: 2083770017}
   - {fileID: 29091862}
+  - {fileID: 478615599}
   - {fileID: 916771143}
+  - {fileID: 2083770017}
   - {fileID: 92058902}
   - {fileID: 593366940}
   - {fileID: 513103196}
   - {fileID: 921690124}
   - {fileID: 332492840}
   - {fileID: 1204770606}
+  - {fileID: 1053591720}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -987,7 +1011,7 @@ GameObject:
   - component: {fileID: 844457688}
   - component: {fileID: 844457687}
   m_Layer: 0
-  m_Name: Neurone (3)
+  m_Name: Neurone (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1006,7 +1030,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 783505806}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &844457687
 CircleCollider2D:
@@ -1091,7 +1115,11 @@ MonoBehaviour:
   isKnown: 0
   levelValue: 0
   isActive: 0
+  m_SpriteRenderer: {fileID: 0}
   parent: {fileID: 0}
+  initColor: {r: 0, g: 0, b: 0, a: 0}
+  neutral: {r: 1, g: 1, b: 1, a: 0.5}
+  selected: {r: 0, g: 1, b: 1, a: 0.5}
 --- !u!1 &915380267
 GameObject:
   m_ObjectHideFlags: 0
@@ -1192,7 +1220,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 783505806}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &916771144
 CircleCollider2D:
@@ -1277,7 +1305,11 @@ MonoBehaviour:
   isKnown: 0
   levelValue: 0
   isActive: 0
+  m_SpriteRenderer: {fileID: 0}
   parent: {fileID: 0}
+  initColor: {r: 0, g: 0, b: 0, a: 0}
+  neutral: {r: 1, g: 1, b: 1, a: 0.5}
+  selected: {r: 0, g: 1, b: 1, a: 0.5}
 --- !u!1 &921690123
 GameObject:
   m_ObjectHideFlags: 0
@@ -1310,7 +1342,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 783505806}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &921690125
 CircleCollider2D:
@@ -1395,7 +1427,95 @@ MonoBehaviour:
   isKnown: 0
   levelValue: 0
   isActive: 0
+  m_SpriteRenderer: {fileID: 0}
   parent: {fileID: 0}
+  initColor: {r: 0, g: 0, b: 0, a: 0}
+  neutral: {r: 1, g: 1, b: 1, a: 0.5}
+  selected: {r: 0, g: 1, b: 1, a: 0.5}
+--- !u!1 &1053591719
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1053591720}
+  - component: {fileID: 1053591721}
+  m_Layer: 0
+  m_Name: FirstNode
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1053591720
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1053591719}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.86, y: -2.47, z: -0.022831075}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 783505806}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &1053591721
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1053591719}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Color: {r: 0, g: 1, b: 1, a: 0.49803922}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &1160589195
 GameObject:
   m_ObjectHideFlags: 0
@@ -1542,7 +1662,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 783505806}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &1204770607
 CircleCollider2D:
@@ -1627,125 +1747,11 @@ MonoBehaviour:
   isKnown: 0
   levelValue: 0
   isActive: 0
+  m_SpriteRenderer: {fileID: 0}
   parent: {fileID: 0}
---- !u!1 &1304942532
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1304942536}
-  - component: {fileID: 1304942535}
-  - component: {fileID: 1304942533}
-  - component: {fileID: 1304942537}
-  m_Layer: 0
-  m_Name: Neurone (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!212 &1304942533
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1304942532}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!114 &1304942535
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1304942532}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef14c30879ccee8a6b24488840113000, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isKnown: 0
-  levelValue: 0
-  isActive: 0
-  parent: {fileID: 0}
---- !u!4 &1304942536
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1304942532}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.88, y: -2.45, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 783505806}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &1304942537
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1304942532}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
+  initColor: {r: 0, g: 0, b: 0, a: 0}
+  neutral: {r: 1, g: 1, b: 1, a: 0.5}
+  selected: {r: 0, g: 1, b: 1, a: 0.5}
 --- !u!1 &1497803975
 GameObject:
   m_ObjectHideFlags: 0
@@ -1759,7 +1765,7 @@ GameObject:
   - component: {fileID: 1497803978}
   - component: {fileID: 1497803977}
   m_Layer: 0
-  m_Name: Neurone (2)
+  m_Name: Neurone (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1778,7 +1784,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 783505806}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &1497803977
 CircleCollider2D:
@@ -1863,7 +1869,11 @@ MonoBehaviour:
   isKnown: 0
   levelValue: 0
   isActive: 0
+  m_SpriteRenderer: {fileID: 0}
   parent: {fileID: 0}
+  initColor: {r: 0, g: 0, b: 0, a: 0}
+  neutral: {r: 1, g: 1, b: 1, a: 0.5}
+  selected: {r: 0, g: 1, b: 1, a: 0.5}
 --- !u!1 &1895849203
 GameObject:
   m_ObjectHideFlags: 0
@@ -1980,7 +1990,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 783505806}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &2083770018
 CircleCollider2D:
@@ -2065,7 +2075,11 @@ MonoBehaviour:
   isKnown: 0
   levelValue: 0
   isActive: 0
+  m_SpriteRenderer: {fileID: 0}
   parent: {fileID: 0}
+  initColor: {r: 0, g: 0, b: 0, a: 0}
+  neutral: {r: 1, g: 1, b: 1, a: 0.5}
+  selected: {r: 0, g: 1, b: 1, a: 0.5}
 --- !u!1001 &4581080896081393557
 PrefabInstance:
   m_ObjectHideFlags: 0

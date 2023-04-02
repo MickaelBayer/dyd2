@@ -7,7 +7,7 @@ using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 using UnityEngine.SceneManagement;
 
-public class machineAnimation : MonoBehaviour
+public class yurE_level2 : MonoBehaviour
 {
     [Header("Simulation de l'etat recçu: Niveau et Etat des neurones")]
     [SerializeField]
@@ -200,5 +200,25 @@ public class machineAnimation : MonoBehaviour
         //Balancer l'anim du Idle ici
     }
 
+    public void frapperPlante()
+    {
+        this.prepareToMove(GameObject.FindWithTag("incident"), "angry");
+        if (goToDestination(destinationImpact, "fache"))
+        {
+            GameObject parapluie = this.sortirObjet(this.prefabParapluieFerme, false);
+            parapluie.GetComponent<outil_behaviour>().frapper();
+            parapluie.GetComponent<outil_behaviour>().frapper();
+        }
+    }
 
+    public void protectionPlante()
+    {
+
+    }
+
+    public void waitPlantDie()
+    {
+
+    }
+    
 }

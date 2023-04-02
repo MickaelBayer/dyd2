@@ -149,18 +149,7 @@ public class machineAnimation : MonoBehaviour
         {
             this.transform.position = Vector2.Lerp(this.transform.position, destinationSommeil.transform.position, Time.deltaTime * this.speedYurE /3);
         }
-        else
-        {
-            try
-            {
-                PlayerPrefs.SetInt("ingameMusic", GameObject.Find("Music Manager").GetComponent<AudioSource>().timeSamples);
-            }
-            catch(System.Exception e)
-            {
-                Debug.Log(e);
-            }
-            SceneManager.LoadScene("game_over");
-        }
+
     }
 
     public GameObject sortirObjet(GameObject prefabObjet)

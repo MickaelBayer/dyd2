@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class outil_behaviour : MonoBehaviour
 {
-    private bool frapping;
-    private bool elanting;
+    public bool frapping;
+    public bool elanting;
     private bool protection;
     [SerializeField]
     float distanceMiniElan;
@@ -44,11 +44,11 @@ public class outil_behaviour : MonoBehaviour
     {
         if (elanting)
         {
-            float distanceElan = Vector2.Distance(this.transform.position, new Vector2(this.positionOrigine.x - 5.0f, this.positionOrigine.y));
-            Debug.Log("Parapluie est a " + distanceElan + "de sa position initiale");
+            float distanceElan = Vector2.Distance(this.transform.position, new Vector2(this.positionOrigine.x, this.positionOrigine.y+5.0f));
+            //Debug.Log("Parapluie est a " + distanceElan + "de sa position initiale");
             if (distanceElan > this.distanceMiniElan)
             {
-                this.transform.position = Vector2.Lerp(this.transform.position, new Vector3(this.positionOrigine.x - 5.0f, this.positionOrigine.y, this.positionOrigine.z), Time.deltaTime * this.speedElan);
+                this.transform.position = Vector2.Lerp(this.transform.position, new Vector3(this.positionOrigine.x, this.positionOrigine.y + 5.0f, this.positionOrigine.z), Time.deltaTime * this.speedElan);
             }
             else
             {
@@ -66,7 +66,14 @@ public class outil_behaviour : MonoBehaviour
             {
                 this.frapping = false;
                 Debug.Log("UECHE");
-                GameObject.FindWithTag("incident").GetComponent<particuleBehaviour>().particuleFrappee();
+                try
+                {
+                    GameObject.FindWithTag("incident").GetComponent<particuleBehaviour>().particuleFrappee();
+                }
+                catch(System.Exception e)
+                {
+                    Debug.Log(e);
+                }
             }
         }
         if (protection)

@@ -26,6 +26,7 @@ public class yurE_level2 : MonoBehaviour
     float speedYurE;
     [SerializeField]
     Vector3 targetScaleObjet;
+    private GameObject parapluie;
 
     [Header("Prefab des objets de Yur-E")]
     [SerializeField]
@@ -129,7 +130,7 @@ public class yurE_level2 : MonoBehaviour
         }
     }
 
-    public bool goToDestination(GameObject destination, string emotion)
+    public bool goToDestination(GameObject destination, string emotion, bool stopAnim=true)
     {
         float distance = Vector2.Distance(this.transform.position, destination.transform.position);
         if(distance > this.distanceMiniArret)
@@ -139,7 +140,8 @@ public class yurE_level2 : MonoBehaviour
         }
         else
         {
-            this.anim_running = false;
+            
+            this.anim_running = !stopAnim;
             this.idle(emotion);
             return true;
         }
@@ -203,11 +205,19 @@ public class yurE_level2 : MonoBehaviour
     public void frapperPlante()
     {
         this.prepareToMove(GameObject.FindWithTag("incident"), "angry");
-        if (goToDestination(destinationImpact, "fache"))
+        if (goToDestination(destinationImpact, "fache", false))
         {
-            GameObject parapluie = this.sortirObjet(this.prefabParapluieFerme, false);
-            parapluie.GetComponent<outil_behaviour>().frapper();
-            parapluie.GetComponent<outil_behaviour>().frapper();
+            if(parapluie == null)
+            {
+                parapluie = this.sortirObjet(this.prefabParapluieFerme, false);
+            }
+            Debug.Log(!parapluie.GetComponent<outil_behaviour>().frapping + " / " + !parapluie.GetComponent<outil_behaviour>().elanting);
+            if(!parapluie.GetComponent<outil_behaviour>().frapping && !parapluie.GetComponent<outil_behaviour>().elanting)
+            {
+                parapluie.GetComponent<outil_behaviour>().frapper();
+                
+            }
+            
         }
     }
 

@@ -45,7 +45,7 @@ public class particuleBehaviour : MonoBehaviour
             float distanceBeforeDestination = Vector2.Distance(this.transform.position, GameObject.FindWithTag("destinationImpact").transform.position);
             if (distanceBeforeDestination >= this.distanceMiniArret)
             {
-                Debug.Log("La particule de merde est à " + distanceBeforeDestination + " distance, elle change de direction en arrivant à " + this.distanceMiniChangementDirection);
+                //Debug.Log("La particule de merde est à " + distanceBeforeDestination + " distance, elle change de direction en arrivant à " + this.distanceMiniChangementDirection);
                 this.transform.position = Vector2.Lerp(this.transform.position, GameObject.FindWithTag("destinationImpact").transform.position, Time.deltaTime * this.speedChuteParticle);
             }
         }

@@ -26,7 +26,6 @@ public class level2 : MonoBehaviour
         {
             Debug.Log(e);
         }
-        particle.GetComponent<particuleBehaviour>().setIsFalling(true);
 
         if ((neuron1 == 1 && neuron2 == 0 && neuron3 == 1) || (neuron1 == 1 && neuron2 == 0 && neuron3 == 0) || (neuron1 == 0 && neuron2 == 0 && neuron3 == 1))
         {
@@ -40,6 +39,7 @@ public class level2 : MonoBehaviour
         {
             scenarioChoice = 2;
         }
+        scenarioChoice = 0;
 
     }
 

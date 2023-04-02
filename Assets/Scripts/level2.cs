@@ -100,7 +100,7 @@ public class level2 : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (yurE.GetComponent<machineAnimation>().anim_running)
+        if (yurE.GetComponent<yurE_level2>().anim_running)
         {
             scenar(scenarioChoice);
         }

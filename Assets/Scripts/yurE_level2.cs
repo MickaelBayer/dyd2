@@ -213,12 +213,16 @@ public class yurE_level2 : MonoBehaviour
 
     public void protectionPlante()
     {
+        this.prepareToMove(GameObject.FindWithTag("incident"), "worry");
 
+        GameObject parapluie = this.sortirObjet(this.prefabParapluieOuvert, true);
+        parapluie.GetComponent<outil_behaviour>().proteger();
     }
 
     public void waitPlantDie()
     {
-
+        bodyObject.GetComponent<SpriteRenderer>().sprite = this.spriteSleep;
+        this.transform.Find("Head").GetComponent<head>().changeHeadState("sleepy");
     }
     
 }

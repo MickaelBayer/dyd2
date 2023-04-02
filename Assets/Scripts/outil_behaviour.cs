@@ -12,6 +12,8 @@ public class outil_behaviour : MonoBehaviour
     [SerializeField]
     float distanceMiniArret;
     [SerializeField]
+    float distanceMiniProtection;
+    [SerializeField]
     float speedFrappe;
     [SerializeField]
     float speedElan;
@@ -25,7 +27,7 @@ public class outil_behaviour : MonoBehaviour
     }
     public void proteger()
     {
-        this.frapping = true;
+        this.protection = true;
     }
     void Start()
     {
@@ -64,6 +66,19 @@ public class outil_behaviour : MonoBehaviour
             {
                 this.frapping = false;
                 Debug.Log("UECHE");
+                GameObject.FindWithTag("incident").GetComponent<particuleBehaviour>().particuleFrappee();
+            }
+        }
+        if (protection)
+        {
+            float distance = Vector2.Distance(this.transform.position, GameObject.FindWithTag("destinationImpact").transform.position);
+            if (distance > this.distanceMiniProtection)
+            {
+                this.transform.position = Vector2.Lerp(this.transform.position, GameObject.FindWithTag("destinationImpact").transform.position, Time.deltaTime * this.speedElan);
+            }
+            else
+            {
+                this.protection = false;
                 GameObject.FindWithTag("incident").GetComponent<particuleBehaviour>().particuleFrappee();
             }
         }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
@@ -37,6 +38,8 @@ public class machineAnimation : MonoBehaviour
     GameObject destinationSommeil;
     [SerializeField]
     GameObject destinationImpact;
+    [SerializeField]
+    GameObject parapluieOuvertSpawner;
 
     [Header("Sprite de Yur_E")]
     [SerializeField]
@@ -89,22 +92,22 @@ public class machineAnimation : MonoBehaviour
     public void frapperParticule()
     {
         //this.sortirObjet(this.prefabParapluie);
-        this.prepareToMove(GameObject.FindWithTag("incident"));
+        this.prepareToMove(GameObject.FindWithTag("incident"), "angry");
         if (goToDestination(destinationImpact, "fache"))
         {
-            GameObject parapluie = this.sortirObjet(this.prefabParapluieFerme);
+            GameObject parapluie = this.sortirObjet(this.prefabParapluieFerme, false);
             parapluie.GetComponent<outil_behaviour>().frapper();
         }
     }
 
     public void protectionParticule()
     {
-        this.prepareToMove(GameObject.FindWithTag("incident"));
-        if(goToDestination(destinationImpact, "inquiet"))
-        {
-            GameObject parapluie = this.sortirObjet(this.prefabParapluieOuvert);
-            parapluie.GetComponent<outil_behaviour>().proteger();
-        }
+        this.prepareToMove(GameObject.FindWithTag("incident"), "worry");
+        /*if(goToDestination(destinationImpact, "inquiet"))
+        {*/
+        GameObject parapluie = this.sortirObjet(this.prefabParapluieOuvert, true);
+        parapluie.GetComponent<outil_behaviour>().proteger();
+        //}
     }
 
     public void prepareToSleep()
@@ -113,8 +116,9 @@ public class machineAnimation : MonoBehaviour
         this.transform.Find("Head").GetComponent<head>().changeHeadState("sleepy");
     }
 
-    public void prepareToMove(GameObject target)
+    public void prepareToMove(GameObject target, string emotion)
     {
+        this.transform.Find("Head").GetComponent<head>().changeHeadState(emotion);
         if (target.transform.position.x > this.transform.position.x)
         {
             bodyObject.GetComponent<SpriteRenderer>().sprite = this.spriteMoveRight;
@@ -152,12 +156,13 @@ public class machineAnimation : MonoBehaviour
 
     }
 
-    public GameObject sortirObjet(GameObject prefabObjet)
+    public GameObject sortirObjet(GameObject prefabObjet, bool isOpen)
     {
+        GameObject spawner = isOpen == true ? this.parapluieOuvertSpawner : this.objetTenuSpawner;
         GameObject objetTenu = null;
-        if (this.objetTenuSpawner.GetComponentsInChildren<Transform>().Length <= 1)
+        if (spawner.GetComponentsInChildren<Transform>().Length <= 1)
         {
-           objetTenu = Instantiate(prefabObjet, this.objetTenuSpawner.transform);
+           objetTenu = Instantiate(prefabObjet, spawner.transform);
            objetTenu.tag = "objetTenu";
         }
         return objetTenu;

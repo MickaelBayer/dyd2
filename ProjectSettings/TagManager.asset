@@ -6,6 +6,7 @@ TagManager:
   tags:
   - incident
   - objetTenu
+  - destinationImpact
   layers:
   - Default
   - TransparentFX

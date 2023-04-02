@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Network : MonoBehaviour
 {
@@ -46,5 +47,6 @@ public class Network : MonoBehaviour
             PlayerPrefs.SetInt(this.name + "_isKnown", neurone.isKnown ? 1 : 0);
             PlayerPrefs.SetInt(this.name + "_levelValue", neurone.levelValue ? 1 : 0);
         }
+        SceneManager.LoadScene("animationMachine");
     }
 }

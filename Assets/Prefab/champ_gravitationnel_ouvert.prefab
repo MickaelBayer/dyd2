@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distanceMiniElan: 4
-  distanceMiniArret: 0.5
+  distanceMiniArret: 1.2
   distanceMiniProtection: 0
   speedFrappe: 7
   speedElan: 3

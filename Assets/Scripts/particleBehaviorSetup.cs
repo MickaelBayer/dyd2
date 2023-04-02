@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
-public class particuleBehaviour : MonoBehaviour
+public class particleBehaviorSetup : MonoBehaviour
 {
     [SerializeField]
     GameObject destination;
@@ -17,6 +17,8 @@ public class particuleBehaviour : MonoBehaviour
 
     /*[SerializeField]
     GameObject destinationImpact;*/
+    [SerializeField]
+    GameObject[] destinationsBeforeImpact;
     [SerializeField]
     float speedChuteParticle;
     [SerializeField]
@@ -36,41 +38,30 @@ public class particuleBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 dir = GameObject.FindWithTag("destinationImpact").transform.position - transform.position;
+        Vector3 dir = destinationsBeforeImpact[compteurDestination].transform.position - transform.position;
         float angle = -90 + Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         this.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
         if (isFalling)
         {
-            float distanceBeforeDestination = Vector2.Distance(this.transform.position, GameObject.FindWithTag("destinationImpact").transform.position);
-            if (distanceBeforeDestination >= this.distanceMiniArret)
+            float distanceBeforeDestination = Vector2.Distance(this.transform.position, destinationsBeforeImpact[compteurDestination].transform.position);
+            if (distanceBeforeDestination >= this.distanceMiniChangementDirection)
             {
                 Debug.Log("La particule de merde est à " + distanceBeforeDestination + " distance, elle change de direction en arrivant à " + this.distanceMiniChangementDirection);
-                this.transform.position = Vector2.Lerp(this.transform.position, GameObject.FindWithTag("destinationImpact").transform.position, Time.deltaTime * this.speedChuteParticle);
+                this.transform.position = Vector2.Lerp(this.transform.position, destinationsBeforeImpact[compteurDestination].transform.position, Time.deltaTime * this.speedChuteParticle);
             }
-        }
-    }
-
-    private void FixedUpdate()
-    {
-        if (isFrapped)
-        {
-            isFalling = false;
-            float distance = Vector2.Distance(this.transform.position, destination.transform.position);
-            if (distance > this.distanceMiniArret)
+            else
             {
-                this.transform.position = Vector2.Lerp(this.transform.position, destination.transform.position, Time.deltaTime * this.particuleSpeed);
+                if (compteurDestination < destinationsBeforeImpact.Length - 1)
+                {
+                    compteurDestination++;
+                    if (compteurDestination == destinationsBeforeImpact.Length - 1)
+                    {
+                        compteurDestination = 0;
+                    }
+                }
             }
+
         }
-    }
-
-    public void particuleFrappee()
-    {
-        isFrapped = true;
-    }
-
-    public void setIsFalling(bool fall)
-    {
-        this.isFalling = fall; 
     }
 }

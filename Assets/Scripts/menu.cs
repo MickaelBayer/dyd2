@@ -10,7 +10,8 @@ public class menu : MonoBehaviour
 
     public void startButton()
     {
-        SceneManager.LoadScene("animationMachine");
+        PlayerPrefs.SetInt("introMusic", GameObject.Find("Music Manager").GetComponent<AudioSource>().timeSamples);
+        SceneManager.LoadScene("intro_screen");
     }
 
     public void quitButton()
@@ -18,8 +19,20 @@ public class menu : MonoBehaviour
         Application.Quit();
     }
 
-    public void startScene(string sceneName)
+    public void startSceneWithMusic(string sceneName)
     {
+        if(sceneName != "level1_setup")
+        {
+            PlayerPrefs.SetInt("ingameMusic", GameObject.Find("Music Manager").GetComponent<AudioSource>().timeSamples);
+        }
+        SceneManager.LoadScene(sceneName);
+    }
+
+    public void firstStartScene(string sceneName)
+    {
+
+        PlayerPrefs.SetInt("ingameMusic", 0);
+
         SceneManager.LoadScene(sceneName);
     }
 

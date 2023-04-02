@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
+using UnityEngine.SceneManagement;
 
 public class machineAnimation : MonoBehaviour
 {
@@ -152,6 +153,7 @@ public class machineAnimation : MonoBehaviour
         {
             this.transform.position = Vector2.Lerp(this.transform.position, destinationSommeil.transform.position, Time.deltaTime * this.speedYurE /3);
         }
+
     }
 
     public GameObject sortirObjet(GameObject prefabObjet, bool isOpen)

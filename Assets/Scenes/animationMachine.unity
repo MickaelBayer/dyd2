@@ -218,7 +218,7 @@ GameObject:
   - component: {fileID: 330049778}
   m_Layer: 0
   m_Name: destinationImpact
-  m_TagString: Untagged
+  m_TagString: destinationImpact
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -318,6 +318,7 @@ MonoBehaviour:
   happyHead: {fileID: 21300000, guid: dfaba5296bec1784889b3ab1f599d94d, type: 3}
   angryHead: {fileID: 21300000, guid: dfaba5296bec1784889b3ab1f599d94d, type: 3}
   sleepyHead: {fileID: 21300000, guid: 31ca389e078b2ad4286934b36557ae84, type: 3}
+  worryHead: {fileID: 0}
 --- !u!212 &544726663
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -558,6 +559,7 @@ MonoBehaviour:
   prefabParapluieFerme: {fileID: 686602533437573273, guid: 471d7502b429f244da019a88d6927f54, type: 3}
   destinationSommeil: {fileID: 813047042}
   destinationImpact: {fileID: 330049777}
+  parapluieOuvertSpawner: {fileID: 1020198365}
   bodyObject: {fileID: 2085142093}
   spriteMoveLeft: {fileID: 21300000, guid: 003e10ea990607e48ba3311f53718bd8, type: 3}
   spriteMoveRight: {fileID: 21300000, guid: 003e10ea990607e48ba3311f53718bd8, type: 3}
@@ -643,8 +645,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1020198365}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.6, y: -8.48, z: 0.5414101}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_LocalPosition: {x: 5.6, y: -9.72, z: 0.5414101}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -679,7 +681,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 215d5098a447e394ea9feb0e1dc8ca8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scenarioChoice: 2
+  scenarioChoice: 1
 --- !u!4 &1209229152
 Transform:
   m_ObjectHideFlags: 0
@@ -820,7 +822,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destination: {fileID: 447318473}
-  particuleSpeed: 10
+  particuleSpeed: 6
   distanceMiniArret: 3
   destinationImpact: {fileID: 330049777}
   speedChuteParticle: 1

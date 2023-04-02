@@ -41,6 +41,7 @@ public class level1 : MonoBehaviour
             /*INTELLIGENT*/
             case 1:
                 yurE.GetComponent<machineAnimation>().protectionParticule();
+                yurE.GetComponent<machineAnimation>().anim_running = false;
                 break;
             /*CALME*/
             case 2:

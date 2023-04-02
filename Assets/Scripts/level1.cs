@@ -22,10 +22,7 @@ public class level1 : MonoBehaviour
         {
             Debug.Log(e);
         }
-        if (this.scenarioChoice != 2)
-        {
             particle.GetComponent<particuleBehaviour>().setIsFalling(true);
-        }
     }
 
     public int getScenarioChoice()

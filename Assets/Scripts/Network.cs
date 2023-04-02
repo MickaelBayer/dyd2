@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Network : MonoBehaviour
 {
-    public int level;
+    public int activatedNeurons;
 
     // Neurone order :
     // - 0 : calm
@@ -27,7 +27,7 @@ public class Network : MonoBehaviour
         this.neurones = this.GetComponentsInChildren<Neurone>();
         for (int i = 0; i < neurones.Length; i++)
         {
-            if (i < 3 * this.level)
+            if (i < this.activatedNeurons-1)
             {
                 neurones[i].isActive = true;
                 neurones[i].isKnown = PlayerPrefs.GetInt(neurones[i].name + "_isKnown") != 0;
@@ -43,6 +43,9 @@ public class Network : MonoBehaviour
                             break;
                         case 2:
                             neurones[i].initColor = new Color(0f, 0f, 1f, .5f);
+                            break;
+                        case 3:
+                            neurones[i].initColor = new Color(1f, 0f, 0f, .5f);
                             break;
                         default:
                             neurones[i].initColor = neurones[i].neutral;

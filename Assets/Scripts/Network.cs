@@ -80,6 +80,7 @@ public class Network : MonoBehaviour
             PlayerPrefs.SetInt(neurone.name + "_isKnown", neurone.isKnown ? 1 : 0);
             PlayerPrefs.SetInt(neurone.name + "_levelValue", neurone.levelValue ? 1 : 0);
         }
+        PlayerPrefs.SetInt("ingameMusic", GameObject.Find("Music Manager").GetComponent<AudioSource>().timeSamples);
         SceneManager.LoadScene(scene);
     }
 }

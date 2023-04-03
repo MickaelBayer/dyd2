@@ -40,18 +40,13 @@ public class menu : MonoBehaviour
 
     public void startSceneWithMusic(string sceneName)
     {
-        if (sceneName != "level1_setup")
-        {
-            PlayerPrefs.SetInt("ingameMusic", GameObject.Find("Music Manager").GetComponent<AudioSource>().timeSamples);
-        }
+        PlayerPrefs.SetInt("ingameMusic", GameObject.Find("Music Manager").GetComponent<AudioSource>().timeSamples);
         SceneManager.LoadScene(sceneName);
     }
 
     public void firstStartScene(string sceneName)
     {
-
         PlayerPrefs.SetInt("ingameMusic", 0);
-
         SceneManager.LoadScene(sceneName);
     }
 

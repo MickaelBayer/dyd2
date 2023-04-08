@@ -44,9 +44,16 @@ public class menu : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
+    public void startSceneWithIntroMusic(string sceneName)
+    {
+        PlayerPrefs.SetInt("introMusic", GameObject.Find("Music Manager").GetComponent<AudioSource>().timeSamples);
+        SceneManager.LoadScene(sceneName);
+    }
+
     public void firstStartScene(string sceneName)
     {
         PlayerPrefs.SetInt("ingameMusic", 0);
+        PlayerPrefs.SetInt("introMusic", 0);
         SceneManager.LoadScene(sceneName);
     }
 

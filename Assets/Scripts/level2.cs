@@ -7,6 +7,8 @@ public class level2 : MonoBehaviour
 {
     private GameObject yurE, particle/*, umbrella*/;
     [SerializeField] private int scenarioChoice;
+    [SerializeField] private Sprite dyingPlant, normalBackground;
+    bool loadingVictory = false;
 
     // Start is called before the first frame update
     void Start()
@@ -117,7 +119,7 @@ public class level2 : MonoBehaviour
                 break;
             case 4:
                 yurE.GetComponent<yurE_level2>().frapperParticule();
-                StartCoroutine(waitToGameOver());
+                StartCoroutine(waitToGameOverFrapper());
                 break;
             case 5:
                 StartCoroutine(waitToLoadVictory());
@@ -129,16 +131,24 @@ public class level2 : MonoBehaviour
 
     private IEnumerator waitToLoadVictory()
     {
-        yield return new WaitForSeconds(3f);
-        try
+        if(!loadingVictory)
         {
-            PlayerPrefs.SetInt("ingameMusic", GameObject.Find("Music Manager").GetComponent<AudioSource>().timeSamples);
+            loadingVictory = true;
+            yield return new WaitForSeconds(1.8f);
+            GameObject.Find("levelBackground").GetComponent<SpriteRenderer>().sprite = dyingPlant;
+            yield return new WaitForSeconds(0.6f);
+            GameObject.Find("levelBackground").GetComponent<SpriteRenderer>().sprite = normalBackground;
+            yield return new WaitForSeconds(0.6f);
+            try
+            {
+                PlayerPrefs.SetInt("ingameMusic", GameObject.Find("Music Manager").GetComponent<AudioSource>().timeSamples);
+            }
+            catch (System.Exception e)
+            {
+                Debug.Log(e);
+            }
+            SceneManager.LoadScene("victory 2");
         }
-        catch (System.Exception e)
-        {
-            Debug.Log(e);
-        }
-        SceneManager.LoadScene("Victory");
     }
 
     private IEnumerator waitToGameOver()
@@ -153,6 +163,26 @@ public class level2 : MonoBehaviour
             Debug.Log(e);
         }
         SceneManager.LoadScene("game_over_level2");
+    }
+
+    private IEnumerator waitToGameOverFrapper()
+    {
+        if(!loadingVictory)
+        {
+            loadingVictory = true;
+            yield return new WaitForSeconds(1.8f);
+            GameObject.Find("levelBackground").GetComponent<SpriteRenderer>().sprite = dyingPlant;
+            yield return new WaitForSeconds(0.5f);
+            try
+            {
+                PlayerPrefs.SetInt("ingameMusic", GameObject.Find("Music Manager").GetComponent<AudioSource>().timeSamples);
+            }
+            catch (System.Exception e)
+            {
+                Debug.Log(e);
+            }
+            SceneManager.LoadScene("game_over_level2");
+        }
     }
 
 

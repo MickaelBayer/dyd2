@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 
 public class yurE_level2 : MonoBehaviour
 {
-    [Header("Simulation de l'etat recçu: Niveau et Etat des neurones")]
+    [Header("Simulation de l'etat recï¿½u: Niveau et Etat des neurones")]
     [SerializeField]
     int Niveau;
     [SerializeField]
@@ -17,7 +17,7 @@ public class yurE_level2 : MonoBehaviour
     [SerializeField]
     public bool anim_running;
 
-    [Header("Variables de paramétrages d'animation")]
+    [Header("Variables de paramï¿½trages d'animation")]
     [SerializeField]
     float distanceMiniArret;
     [SerializeField]
@@ -227,7 +227,7 @@ public class yurE_level2 : MonoBehaviour
             {
                 parapluie = this.sortirObjet(this.prefabParapluieFerme, false);
             }
-            Debug.Log(!parapluie.GetComponent<outil_behaviour>().frapping + " / " + !parapluie.GetComponent<outil_behaviour>().elanting);
+            //Debug.Log(!parapluie.GetComponent<outil_behaviour>().frapping + " / " + !parapluie.GetComponent<outil_behaviour>().elanting);
             if(!parapluie.GetComponent<outil_behaviour>().frapping && !parapluie.GetComponent<outil_behaviour>().elanting)
             {
                 parapluie.GetComponent<outil_behaviour>().frapper();
